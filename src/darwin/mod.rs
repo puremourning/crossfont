@@ -445,10 +445,13 @@ impl Font {
 
         if use_thin_strokes {
             cg_context.set_font_smoothing_style(16);
+            cg_context.set_allows_font_smoothing(false);
+            cg_context.set_should_smooth_fonts(false);
+        } else {
+            cg_context.set_allows_font_smoothing(true);
+            cg_context.set_should_smooth_fonts(true);
         }
 
-        cg_context.set_allows_font_smoothing(true);
-        cg_context.set_should_smooth_fonts(true);
         cg_context.set_allows_font_subpixel_quantization(true);
         cg_context.set_should_subpixel_quantize_fonts(true);
         cg_context.set_allows_font_subpixel_positioning(true);
